@@ -1,4 +1,6 @@
 const express = require('express')
+const port=process.env.PORT||3000
+require('dotenv').config()
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -25,7 +27,6 @@ io.on('connection', socket => {
 
   })
 }) 
-const port=3000;
 server.listen(port,()=>{
   console.log("connected...",port);
 })
